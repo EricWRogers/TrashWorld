@@ -43,7 +43,7 @@ public class Fire : MonoBehaviour
         transform.localScale = new Vector3(currentSize, currentSize, currentSize);
          
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Trash"))
         {
