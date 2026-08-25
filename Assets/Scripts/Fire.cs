@@ -43,13 +43,13 @@ public class Fire : MonoBehaviour
         transform.localScale = new Vector3(currentSize, currentSize, currentSize);
          
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Trash"))
         {
             Destroy(other.gameObject);
             TrashBurned++;
-            if(TrashBurned >= 3)//grow the fire after 3 trash objects are destroyed
+            if(TrashBurned >= 2)//grow the fire after 3 trash objects are destroyed
             {
                 Targetgrowth = Mathf.Clamp(currentSize + growthRate, baseSize, maxSize);
                 Kindling = true;
