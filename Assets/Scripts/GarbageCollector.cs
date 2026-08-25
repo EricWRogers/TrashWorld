@@ -8,7 +8,7 @@ public class GarbageCollector : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        garbageObjects.AddRange(GameObject.FindGameObjectsWithTag("Garbage"));
+        garbageObjects.AddRange(GameObject.FindGameObjectsWithTag("Trash"));
     }
 
     // Update is called once per frame
