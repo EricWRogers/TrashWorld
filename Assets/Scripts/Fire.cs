@@ -49,7 +49,7 @@ public class Fire : MonoBehaviour
         {
             Destroy(other.gameObject);
             TrashBurned++;
-            if(TrashBurned >= 3)//grow the fire after 3 trash objects are destroyed
+            if(TrashBurned >= 2)//grow the fire after 3 trash objects are destroyed
             {
                 Targetgrowth = Mathf.Clamp(currentSize + growthRate, baseSize, maxSize);
                 Kindling = true;
