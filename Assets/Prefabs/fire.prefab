@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: -4423908026929703766}
   - component: {fileID: 8359047661322242037}
   - component: {fileID: 1415484186244434839}
-  - component: {fileID: 2451134041379384443}
   m_Layer: 0
   m_Name: fire
   m_TagString: Fire
@@ -137,39 +136,5 @@ MonoBehaviour:
   baseSize: 1
   growthRate: 0.5
   maxSize: 5
---- !u!58 &2451134041379384443
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 77325066359724988}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: -0.012163639, y: 0}
-  m_Radius: 0.39192626
+  inventorySlot: {fileID: 0}
+  points: {fileID: 0}
