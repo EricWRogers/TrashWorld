@@ -13,6 +13,10 @@ public class PickUp : MonoBehaviour
     [SerializeField]
     private float rayDistance;
 
+    //inventory code
+    [SerializeField]
+    private InventorySlot inventorySlot;
+
     private GameObject grabbedObject;
     private int layerIndex;
 
@@ -33,12 +37,21 @@ public class PickUp : MonoBehaviour
                 grabbedObject.GetComponent<Rigidbody2D>().isKinematic = true;
                 grabbedObject.transform.position = grabPoint.position;
                 grabbedObject.transform.SetParent(transform);
+                //getting item component and showing for inventory slot 
+                Item item = grabbedObject.GetComponent<Item>();
+                if (item != null)
+                {
+                    inventorySlot.AddItem(item);
+                }
             }
             else if (Keyboard.current.eKey.wasPressedThisFrame)
             {
                 grabbedObject.GetComponent<Rigidbody2D>().isKinematic = false;
                 grabbedObject.transform.SetParent(null);
                 grabbedObject = null;
+
+                //hide item in inventory
+                inventorySlot.ClearSlot();
             }
             
         }

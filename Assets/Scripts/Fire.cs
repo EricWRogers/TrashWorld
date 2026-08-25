@@ -13,6 +13,13 @@ public class Fire : MonoBehaviour
     private int TrashBurned = 0;
     private bool Kindling = false;
 
+    //inventory code
+    [SerializeField]
+    private InventorySlot inventorySlot;
+    //points code 
+    [SerializeField]
+    private Points points;
+
     void Start()
     {
         
@@ -47,6 +54,11 @@ public class Fire : MonoBehaviour
     {
         if (other.CompareTag("Trash"))
         {
+            //inventory code
+            inventorySlot.ClearSlot();
+            //points code
+            points.AddPoints();
+            
             Destroy(other.gameObject);
             TrashBurned++;
             if(TrashBurned >= 2)//grow the fire after 3 trash objects are destroyed
