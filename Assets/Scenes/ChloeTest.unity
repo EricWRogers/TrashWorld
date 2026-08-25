@@ -518,6 +518,7 @@ GameObject:
   - component: {fileID: 743601391}
   - component: {fileID: 743601393}
   - component: {fileID: 743601392}
+  - component: {fileID: 743601394}
   m_Layer: 5
   m_Name: slot1
   m_TagString: Untagged
@@ -583,6 +584,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743601390}
   m_CullTransparentMesh: 1
+--- !u!114 &743601394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743601390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7835d9cce7a95514f842a1c19cfb84f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
+  itemImage: {fileID: 1961014920}
 --- !u!1 &746068010
 GameObject:
   m_ObjectHideFlags: 0
