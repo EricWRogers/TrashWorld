@@ -40,6 +40,7 @@ public class GrabSystem : MonoBehaviour
             if (grabbedObject != null)
                 Throw();
         }
+
     }
 
     private void FixedUpdate()
@@ -137,6 +138,8 @@ public class GrabSystem : MonoBehaviour
         trail.emitting = true;
 
         yield return new WaitForSeconds(2.5f);
+
+        if (trail == null) yield break;
 
         trail.emitting = false;
     }
