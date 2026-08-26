@@ -48,15 +48,15 @@ public class Fire : MonoBehaviour
         transform.localScale = new Vector3(currentFire, currentFire, currentFire);
        
     }
-    private void LevelUp()
-    {
-        fireLevel++;
-        if (firelevel ++ && fireLevel < maxFireLevel)
-        {
-            CoinSpawner coinSpawner = FindObjectOfType<CoinSpawner>();
+    // private void LevelUp()
+    // {
+    //     fireLevel++;
+    //     if (firelevel ++ && fireLevel < maxFireLevel)
+    //     {
+    //         CoinSpawner coinSpawner = FindObjectOfType<CoinSpawner>();
             
-        }
-    }
+    //     }
+    // }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Trash"))

@@ -15,10 +15,10 @@ public class Coin : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        PlayerController player = other.GetComponent<PlayerController>();
-        if(player != null)
-        {
-            Destroy(gameObject);
-        }
+        // PlayerController player = other.GetComponent<PlayerController>();
+        // if(player != null)
+        // {
+        //     Destroy(gameObject);
+        // }
     }
 }
