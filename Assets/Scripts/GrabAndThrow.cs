@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -72,6 +73,7 @@ public class GrabSystem : MonoBehaviour
             grabbedObject.linearDamping = 10f;
             grabbedObject.angularDamping = 10f;
             grabbedObject.interpolation = RigidbodyInterpolation.Interpolate;
+
         }
     }
 
@@ -109,7 +111,15 @@ public class GrabSystem : MonoBehaviour
 
         rb.linearVelocity = playerCamera.transform.forward * throwForce;
 
+        TrailRenderer trail = grabbedObject.GetComponentInParent<TrailRenderer>();
+        if (trail != null)
+        {
+            StartCoroutine(StopTrail(trail));
+        }
+
+
         grabbedObject = null;
+
     }
 
     public void AddThrowForce()
@@ -120,5 +130,14 @@ public class GrabSystem : MonoBehaviour
     public void AddGrabDistance()
     {
         grabDistance++;
+    }
+
+    private IEnumerator StopTrail(TrailRenderer trail)
+    {
+        trail.emitting = true;
+
+        yield return new WaitForSeconds(2.5f);
+
+        trail.emitting = false;
     }
 }
