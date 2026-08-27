@@ -252,6 +252,11 @@ namespace StarterAssets
 			if (lfAngle > 360f) lfAngle -= 360f;
 			return Mathf.Clamp(lfAngle, lfMin, lfMax);
 		}
+		//upgrade logic for player speed
+		public void ApplySpeedUpgrade(int level){
+			MoveSpeed = 4.0f + level;
+			SprintSpeed = 6.0f + level;
+		}
 
 		private void OnDrawGizmosSelected()
 		{

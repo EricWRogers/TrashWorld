@@ -122,10 +122,14 @@ public class GrabSystem : MonoBehaviour
         grabbedObject = null;
 
     }
-
-    public void AddThrowForce()
+    // upgrade logic for throw force 
+    //public void AddThrowForce()
+    //{
+       // throwForce += 5.0f;
+    //}
+    public void ApplyThrowForceUpgrade(int level)
     {
-        throwForce += 5.0f;
+        throwForce = 5.0f + (level * 5.0f);
     }
 
     public void AddGrabDistance()

@@ -6,6 +6,10 @@ TagManager:
   tags:
   - CinemachineTarget
   - Trash
+  - Coin
+  - UpgradeShop
+  - TimerText
+  - CoinText
   layers:
   - Default
   - TransparentFX
