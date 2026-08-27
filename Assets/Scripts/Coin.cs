@@ -2,23 +2,30 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    private GameObject PlayerCapsulePrefab;
 
-    // Update is called once per frame
-    void Update()
+    public float rotationSpeed = 50f; // rotation speed
+    public float bobbingSpeed = 0.5f;
+    public float bobbingHeight = 0.5f;
+    public float startY;
+
+    private void Start()
     {
-        
+        startY = transform.position.y;
     }
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        // PlayerController player = other.GetComponent<PlayerController>();
-        // if(player != null)
-        // {
-        //     Destroy(gameObject);
-        // }
+        transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime, Space.World);//spinning the coin
+        float newY = startY + Mathf.Sin(Time.time * bobbingSpeed) * bobbingHeight;//bobs obove the ground
+        transform.position = new Vector3(transform.position.x, newY, transform.position.z);
+
+    }
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private void OnTriggerEnter(Collider other)//destorys coin on contact
+    {
+       if (other.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

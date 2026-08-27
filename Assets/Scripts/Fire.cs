@@ -5,7 +5,7 @@ public class Fire : MonoBehaviour
     public CoinSpawner coinSpawner;
     public GameObject CoinPrefab;
     
-    private float fireBase = 1f;
+    private float fireBase = 0.1f;
     private float growthRate = 0.5f;
     private float maxFireSize = 5f;
     private float currentFire;
@@ -45,18 +45,22 @@ public class Fire : MonoBehaviour
     private void GrowFire(float amount)
     {
         currentFire += amount;
-        transform.localScale = new Vector3(currentFire, currentFire, currentFire);
+        transform.localScale = new Vector3(currentFire, currentFire * 0.25f, currentFire);
        
     }
-    // private void LevelUp()
-    // {
-    //     fireLevel++;
-    //     if (firelevel ++ && fireLevel < maxFireLevel)
-    //     {
-    //         CoinSpawner coinSpawner = FindObjectOfType<CoinSpawner>();
+    private void LevelUp()
+    {
+        fireLevel++;
+        if (fireLevel <= maxFireLevel)
+        {
+            coinSpawner.SpawnCoins(CoinPrefab, transform.position, 5);
             
-    //     }
-    // }
+        }
+        if (fireLevel == maxFireLevel)
+        {
+            fireLevel = maxFireLevel;
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Trash"))
@@ -65,10 +69,10 @@ public class Fire : MonoBehaviour
             burnedTrash++;
             if(burnedTrash == 3 && fireLevel < maxFireLevel)
             {
-                fireLevel++;
+                LevelUp();
                 Kindling = true;
                 targetSize = Mathf.Clamp(currentFire + growthRate, fireBase, maxFireSize);
-                
+                burnedTrash = 0; // reset count
 
             }
             
