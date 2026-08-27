@@ -184,6 +184,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1425331147394070434, guid: 590070628a4c92f43881cefc49340973, type: 3}
+      propertyPath: trashPrefab
+      value: 
+      objectReference: {fileID: 1070309871818396039, guid: d5bbe56c7852a7848ad94f5ab5cbbb6b, type: 3}
     - target: {fileID: 2803302420384090579, guid: 590070628a4c92f43881cefc49340973, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.18
@@ -320,7 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   gameTimeInSec: 300
-  shopUI: {fileID: 0}
+  coins: 0
 --- !u!4 &434949143
 Transform:
   m_ObjectHideFlags: 0
