@@ -5,7 +5,7 @@ public class Fire : MonoBehaviour
     public CoinSpawner coinSpawner;
     public GameObject CoinPrefab;
     
-    private float fireBase = 0.1f;
+    private float fireBase = 0.3f;
     private float growthRate = 0.5f;
     private float maxFireSize = 5f;
     private float currentFire;
@@ -45,7 +45,7 @@ public class Fire : MonoBehaviour
     private void GrowFire(float amount)
     {
         currentFire += amount;
-        transform.localScale = new Vector3(currentFire, currentFire * 0.25f, currentFire);
+        transform.localScale = new Vector3(currentFire, currentFire, currentFire);
        
     }
     private void LevelUp()
