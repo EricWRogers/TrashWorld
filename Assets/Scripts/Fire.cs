@@ -5,20 +5,24 @@ public class Fire : MonoBehaviour
     public CoinSpawner coinSpawner;
     public GameObject CoinPrefab;
     
-    private float fireBase = 0.3f;
-    private float growthRate = 0.5f;
-    private float maxFireSize = 5f;
+
+    private Light FireLight;
+    public float fireBase = 2f;
+    public float growthRate = 1f;
+    public  float maxFireSize = 5f;
     private float currentFire;
     private int burnedTrash = 0;
     private float targetSize;
     private int fireLevel = 1;
-    private int maxFireLevel = 10;
+    public  int maxFireLevel = 5;
     private bool Kindling = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentFire = fireBase;
+        FireLight = GetComponentInChildren<Light>();
+        FireLight.intensity = currentFire * 1.5f; // adjusting intensity from fire size
         transform.localScale = new Vector3(currentFire, currentFire, currentFire);
     }
 
@@ -46,13 +50,14 @@ public class Fire : MonoBehaviour
     {
         currentFire += amount;
         transform.localScale = new Vector3(currentFire, currentFire, currentFire);
-       
+        FireLight.intensity = currentFire * 1.5f;
     }
     private void LevelUp()
     {
         fireLevel++;
         if (fireLevel <= maxFireLevel)
         {
+
             coinSpawner.SpawnCoins(CoinPrefab, transform.position, 5);
             
         }
@@ -71,7 +76,7 @@ public class Fire : MonoBehaviour
             {
                 LevelUp();
                 Kindling = true;
-                targetSize = Mathf.Clamp(currentFire + growthRate, fireBase, maxFireSize);
+                targetSize = Mathf.Clamp((currentFire * 1.5f) + growthRate, fireBase, maxFireSize);
                 burnedTrash = 0; // reset count
 
             }

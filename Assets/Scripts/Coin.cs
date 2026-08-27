@@ -6,7 +6,7 @@ public class Coin : MonoBehaviour
 
     public float rotationSpeed = 50f; // rotation speed
     public float bobbingSpeed = 0.5f;
-    public float bobbingHeight = 0.5f;
+    public float bobbingHeight = 0.25f;
     public float startY;
 
     private void Start()
@@ -17,7 +17,7 @@ public class Coin : MonoBehaviour
     {
         transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime, Space.World);//spinning the coin
         float newY = startY + Mathf.Sin(Time.time * bobbingSpeed) * bobbingHeight;//bobs obove the ground
-        transform.position = new Vector3(transform.position.x, newY, transform.position.z);
+        transform.position = new Vector3(transform.position.x, (newY*0.5f) , transform.position.z);
 
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
