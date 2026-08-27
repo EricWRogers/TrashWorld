@@ -2,12 +2,21 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    static public GameManager instance;
     [SerializeField] private float gameTimeInSec = 300.0f;
 
     float timeRemaining;
+    public int coins;
 
     private void Start()
     {
+        if (instance == null || instance != this)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else { Destroy(gameObject); }
         timeRemaining = gameTimeInSec;
     }
 
@@ -27,11 +36,13 @@ public class GameManager : MonoBehaviour
 
     private void TimerFinished()
     {
-        Debug.Log("Day Done");
+        Debug.Log("Timer Done");
     }
 
-    public void AddBackBoard()
+    public void AddCoin()
     {
-        
+        coins++;
+        Debug.Log(coins);
     }
+
 }
