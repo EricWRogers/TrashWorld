@@ -70,7 +70,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7ab977a21c92388468ee65ad1c0e5a78, type: 2}
+  - {fileID: 2100000, guid: f1911404645fb677c9681bbf55c42b8b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -325,6 +325,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6234303901139180476, guid: 72c6adf66f7a0014e801993671b6c9a4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f1911404645fb677c9681bbf55c42b8b, type: 2}
     - target: {fileID: 919132149155446097, guid: 72c6adf66f7a0014e801993671b6c9a4, type: 3}
       propertyPath: m_Name
       value: trashPilw_04
