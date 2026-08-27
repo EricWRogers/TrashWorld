@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
-    [SerializeField] private AudioClip burnSoundClip;
-    [SerializeField] private AudioClip coinSoundClip;
-
     public CoinSpawner coinSpawner;
     public GameObject CoinPrefab;
     
@@ -25,7 +22,7 @@ public class Fire : MonoBehaviour
     {
         currentFire = fireBase;
         FireLight = GetComponentInChildren<Light>();
-        FireLight.intensity = currentFire * 1.5f; // adjusting intensity from fire size
+        FireLight.intensity = currentFire * 20f; // adjusting intensity from fire size
         transform.localScale = new Vector3(currentFire, currentFire, currentFire);
     }
 
@@ -62,10 +59,7 @@ public class Fire : MonoBehaviour
         {
 
             coinSpawner.SpawnCoins(CoinPrefab, transform.position, 5);
-            //coin sound plays
-            SoundFXManager.instance.PlaySoundFXClip(coinSoundClip, transform, 1.0f);
-
-
+            
         }
         if (fireLevel == maxFireLevel)
         {
@@ -77,8 +71,6 @@ public class Fire : MonoBehaviour
         if (other.CompareTag("Trash"))
         {
             Destroy(other.gameObject);
-            //burn sound plays
-            SoundFXManager.instance.PlaySoundFXClip(burnSoundClip, transform, 1.0f);
             burnedTrash++;
             if(burnedTrash == 3 && fireLevel < maxFireLevel)
             {
