@@ -25,6 +25,7 @@ public class Coin : MonoBehaviour
     {
        if (other.CompareTag("Player"))
         {
+            GameManager.instance.AddCoin();
             Destroy(gameObject);
         }
     }
